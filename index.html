@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumit Punshi | RESECON 490AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --f1-red: #e10600;
+            --pit-dark: #06070a;
+            --pit-mid: #0c0f18;
+            --pit-light: #141822;
+            --tire-grey: #9aa2ae;
+            --chalk: #f3f7fa;
+            --soft: rgba(255, 255, 255, 0.05);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at 25% 20%, rgba(225, 6, 0, 0.16), transparent 38%), linear-gradient(180deg, #050608 0%, #0a0d15 45%, #050608 100%);
+            color: var(--chalk);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -10vh -10vw auto -10vw;
+            height: 130vh;
+            background: url('data:image/svg+xml;base64,CjxzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgMTIwMCA0MDAnPgogIDxyZWN0IHdpZHRoPScxMjAwJyBoZWlnaHQ9JzQwMCcgZmlsbD0nbm9uZScvPgogIDxnIGZpbGw9J3JnYmEoMjU1LDI1NSwyNTUsMC4wOScnIHN0cm9rZT0ncmdiYSgyNTUsMjU1LDI1NSwwLjEyKScgc3Ryb2tlLXdpZHRoPSczJz4KICAgIDxwYXRoIGQ9J00zMCAxNjAgaDkwIGw0MCAtNDAgaDEyMCBsMTggLTE4IGg3MiBsMTggMTggaDEyMCBsNDAgNDAgaDExMCBsMTAgMzAgaC01NjAgeicvPgogICAgPHBhdGggZD0nTTMwIDMyMCBoOTAgbDQwIC00MCBoMTIwIGwxOCAtMTggaDcyIGwxOCAxOCBoMTIwIGw0MCA0MCBoMTEwIGwxMCAzMCBoLTU2MCB6JyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSgyOTAsLTQwKScvPgogICAgPHBhdGggZD0nTTMwIDMyMCBoOTAgbDQwIC00MCBoMTIwIGwxOCAtMTggaDcyIGwxOCAxOCBoMTIwIGw0MCA0MCBoMTEwIGwxMCAzMCBoLTU2MCB6JyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSg1ODAsLTgwKScvPgogIDwvZz4KICA8ZyBzdHJva2U9JyNmZmZmZmYnIHN0cm9rZS13aWR0aD0nNicgc3Rya2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnIGZpbGw9J3JnYmEoMjU1LDI1NSwyNTUsMC4wNScnPgogICAgPHBhdGggZD0nTTgwIDI3MCBoMTIwIGw0MCAtNDAgaDIyMCBsMzUgMzUgbC0zNSAzNSBoLTIyMCBsLTQwIC00MCBoLTEyMCB6Jy8+CiAgICA8cGF0aCBkPSdNMCAzNTAgaDIwMCBsNjYgLTY2IGgyNjAgbDU4IDU4IGwtNTggNTggaC0yNjAgbC02NiAtNjYgSDAgeicgdHJhbnNmb3JtPSd0cmFuc2xhdGUoMzQwLC00MCknLz4KICAgIDxwYXRoIGQ9J00wIDM1MCBoMjAwIGw2NiAtNjYgaDI2MCBsNTggNTggbC01OCA1OCBoLTI2MCBsLTY2IC02NiBIMCB6JyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSg2ODAsLTgwKScvPgogIDwvZz4KPC9zdmc+Cg==') center top / cover no-repeat;
+            opacity: 0.45;
+            pointer-events: none;
+            filter: blur(0.2px);
+        }
+
+        main {
+            position: relative;
+            padding: clamp(3rem, 6vw, 6rem) clamp(1.5rem, 6vw, 7rem) clamp(6rem, 10vw, 9rem);
+            display: flex;
+            flex-direction: column;
+            gap: clamp(2.5rem, 7vw, 4rem);
+            max-width: 1100px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        header.hero {
+            background: rgba(10, 14, 22, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+            border-radius: 22px;
+            padding: clamp(2.5rem, 6vw, 4rem) clamp(2rem, 5vw, 4.5rem);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            align-items: center;
+            gap: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        .preheader {
+            font-family: 'Titillium Web', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            font-size: 0.9rem;
+            color: var(--tire-grey);
+            margin: 0 0 0.5rem;
+        }
+
+        h1 {
+            font-family: 'Titillium Web', sans-serif;
+            font-size: clamp(2.6rem, 5vw, 4.1rem);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin: 0 0 0.3rem;
+        }
+
+        .track-divider {
+            width: 120px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--f1-red), rgba(255, 255, 255, 0.45));
+            border-radius: 999px;
+            margin: 0.6rem 0 1.1rem;
+        }
+
+        .lead {
+            font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+            line-height: 1.75;
+            color: rgba(243, 247, 250, 0.85);
+            margin: 0 0 1rem;
+        }
+
+        .scroll-hint {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.24em;
+            color: rgba(243, 247, 250, 0.6);
+        }
+
+        .resume-link {
+            color: #63a4ff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .resume-link:hover {
+            text-decoration: underline;
+        }
+
+        .profile-photo {
+            width: clamp(220px, 30vw, 260px);
+            height: clamp(220px, 30vw, 260px);
+            border-radius: 22px;
+            background: linear-gradient(135deg, rgba(225, 6, 0, 0.18), rgba(255, 255, 255, 0.04));
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.55);
+            position: relative;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        section.panel {
+            background: rgba(9, 12, 19, 0.86);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: clamp(2.2rem, 5vw, 3.2rem);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.6);
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        section.panel h2 {
+            font-family: 'Titillium Web', sans-serif;
+            font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--chalk);
+        }
+
+        .bio-grid {
+            display: grid;
+            gap: 0.6rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(243, 247, 250, 0.85);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: rgba(18, 23, 33, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: grid;
+            gap: 0.7rem;
+            min-height: 180px;
+            transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(225, 6, 0, 0.5);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--chalk);
+        }
+
+        .card p {
+            margin: 0;
+            color: rgba(243, 247, 250, 0.8);
+            line-height: 1.55;
+            font-size: 0.98rem;
+        }
+
+        .card .cta {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.75rem 1.1rem;
+            border-radius: 12px;
+            background: linear-gradient(120deg, var(--f1-red), #ff4d4d);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            box-shadow: 0 10px 28px rgba(225, 6, 0, 0.3);
+        }
+
+        .card .cta.secondary {
+            background: linear-gradient(120deg, var(--f1-red), #ff4d4d);
+            color: #fff;
+            box-shadow: 0 10px 28px rgba(225, 6, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .speedster {
+            position: fixed;
+            bottom: clamp(3rem, 8vh, 6rem);
+            left: -24rem;
+            width: clamp(16rem, 30vw, 26rem);
+            aspect-ratio: 3 / 1;
+            background: url('data:image/svg+xml;base64,CjxzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgMzYwIDEyMCc+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9J2NhckJvZHknIHgxPScwJScgeTE9JzAlJyB4Mj0nMTAwJScgeTI9JzAlJz4KICAgICAgPHN0b3Agb2Zmc2V0PScwJScgc3RvcC1jb2xvcj0nI2Q5MWUzNicvPgogICAgICA8c3RvcCBvZmZzZXQ9JzY1JScgc3RvcC1jb2xvcj0nI2YwNGI0NCcvPgogICAgICA8c3RvcCBvZmZzZXQ9JzEwMCUnIHN0b3AtY29sb3I9JyNmZjc3NjUnLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSczNjAnIGhlaWdodD0nMTIwJyBmaWxsPSdub25lJy8+CiAgPGc+CiAgICA8cGF0aCBkPSdNMTUgOTIgaDQ4IGwyNCAtMjAgaDE0MiBsMTggLTggaDMwIGw0MCAxOCBoMjggbDEwIDEyIGgtMzUwIHonIGZpbGw9J3VybCgjY2FyQm9keSknIHN0cm9rZT0nI2ZmZmZmZicgc3Ryb2tlLXdpZHRoPSczJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJy8+CiAgICA8cGF0aCBkPSdNMTIwIDcyIGgxMDggbDE2IC0yMCBoLTgwIGwtMjAgMTIgaC0yNCB6JyBmaWxsPScjMTExYTJiJyBzdHJva2U9JyNmZmZmZmYnIHN0cm9rZS13aWR0aD0nMicvPgogICAgPGNpcmNsZSBjeD0nMTAyJyBjeT0nOTInIHI9JzE4JyBmaWxsPScjMGQxMTFiJyBzdHJva2U9JyNmZmZmZmYnIHN0cm9rZS13aWR0aD0nNCcvPgogICAgPGNpcmNsZSBjeD0nMjUyJyBjeT0nOTInIHI9JzE4JyBmaWxsPScjMGQxMTFiJyBzdHJva2U9JyNmZmZmZmYnIHN0cm9rZS13aWR0aD0nNCcvPgogICAgPGNpcmNsZSBjeD0nMTAyJyBjeT0nOTInIHI9JzgnIGZpbGw9JyNjNGNiZDQnLz4KICAgIDxjaXJjbGUgY3g9JzI1MicgY3k9JzkyJyByPSc4JyBmaWxsPScjYzRjYmQ0Jy8+CiAgICA8cGF0aCBkPSdNNTggNzIgbDEyIC0xMCBoMjggbC0yMiAxOCB6JyBmaWxsPScjZmZmZmZmJyBmaWxsLW9wYWNpdHk9JzAuNicvPgogICAgPHBhdGggZD0nTTIxMCA1MCBoMzYgbDI0IDIwIGgtNjAgeicgZmlsbD0nI2ZmZmZmZicgZmlsbC1vcGFjaXR5PScwLjQnLz4KICA8L2c+Cjwvc3ZnPgo=') center / contain no-repeat;
+            pointer-events: none;
+            filter: drop-shadow(0 0 32px rgba(225, 6, 0, 0.55));
+            will-change: transform;
+            z-index: 0;
+            transition: transform 0.12s linear;
+        }
+
+        @media (max-width: 640px) {
+            footer {
+                text-align: center;
+            }
+
+            .speedster {
+                opacity: 0.85;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="speedster" aria-hidden="true"></div>
+    <main>
+        <header class="hero">
+            <div class="hero-grid">
+                <div>
+                    <!-- Replace with your name -->
+                    <p class="preheader">Undergraduate | Managerial Economics</p>
+                    <h1>Sumit Punshi</h1>
+                    <div class="track-divider" aria-hidden="true"></div>
+                    <!-- Update this paragraph with your own description -->
+                    <p class="lead">Managerial Economics student with a focus on AI, data analysis, and building scalable organizations. Exploring the intersection of strategy, technology, and fast-paced execution.</p>
+                    <p class="scroll-hint">Select a tab below to explore</p>
+                </div>
+                <div class="profile-photo">
+                    <!-- Swap images/Profile.jpg with your own portrait; keep filename if you want the link to stay the same -->
+                    <img src="images/Profile.jpg" alt="Profile portrait">
+                </div>
+            </div>
+        </header>
+
+        <section class="panel" id="about">
+            <h2>About</h2>
+            <div class="bio-grid">
+                <p><strong>Name:</strong> <!-- Update with your name -->Sumit Punshi</p>
+                <p><strong>Major/Minor:</strong> B.S. Managerial Economics, Minor in Business</p>
+                <p><strong>Class:</strong> May 2026</p>
+                <p><strong>Experience:</strong> <a class="resume-link" href="resume.pdf" target="_blank" rel="noopener">Resume</a></p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Resume</h3>
+                    <p>View professional background, coursework, and experience.</p>
+                    <!-- Point to your actual resume PDF -->
+                    <a class="cta" href="resume.pdf" target="_blank" rel="noopener">View Resume</a>
+                </div>
+                <div class="card">
+                    <h3>TiMUS</h3>
+                    <p>Trading in Markets Under Simulation — your financial hub with zero-risk practice.</p>
+                    <a class="cta secondary" href="project.html">Open Project</a>
+                </div>
+                <div class="card">
+                    <h3>Formula One UMass</h3>
+                    <p>President of F1 UMass — peek at what we do here.</p>
+                    <a class="cta secondary" href="https://spunshi24.github.io/Formula-One-Umass/" target="_blank" rel="noopener">View Website</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const speedster = document.querySelector('.speedster');
+
+        function updateSpeedster() {
+            if (!speedster) return;
+            const maxTravel = window.innerWidth + speedster.offsetWidth * 1.5;
+            const scrollMax = document.body.scrollHeight - window.innerHeight;
+            const progress = scrollMax > 0 ? window.scrollY / scrollMax : 0;
+            const translateX = progress * maxTravel - speedster.offsetWidth;
+            speedster.style.transform = `translateX(${translateX}px)`;
+        }
+
+        window.addEventListener('scroll', updateSpeedster, { passive: true });
+        window.addEventListener('resize', updateSpeedster);
+        updateSpeedster();
+    </script>
+</body>
+</html>

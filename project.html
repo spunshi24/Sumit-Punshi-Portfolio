@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Class Project | TiMUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --f1-red: #e10600;
+            --pit-dark: #06070a;
+            --pit-mid: #0c0f18;
+            --pit-light: #141822;
+            --tire-grey: #9aa2ae;
+            --chalk: #f3f7fa;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at 25% 20%, rgba(225, 6, 0, 0.16), transparent 38%), linear-gradient(180deg, #050608 0%, #0a0d15 45%, #050608 100%);
+            color: var(--chalk);
+            min-height: 100vh;
+            padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 6vw, 6rem) clamp(3rem, 8vw, 6rem);
+        }
+
+        .frame {
+            max-width: 960px;
+            margin: 0 auto;
+            background: rgba(10, 14, 22, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+            padding: clamp(2rem, 4vw, 3rem);
+            display: grid;
+            gap: 1.6rem;
+        }
+
+        a.back-link {
+            color: var(--tire-grey);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        a.back-link:hover {
+            color: var(--chalk);
+        }
+
+        h1 {
+            font-family: 'Titillium Web', sans-serif;
+            font-size: clamp(2.3rem, 4vw, 3.1rem);
+            margin: 0;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .lead {
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(243, 247, 250, 0.82);
+        }
+
+        .section-title {
+            font-family: 'Titillium Web', sans-serif;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-size: 1.15rem;
+            margin: 0;
+        }
+
+        .materials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: rgba(18, 23, 33, 0.78);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1.4rem;
+            display: grid;
+            gap: 0.6rem;
+            min-height: 160px;
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            letter-spacing: 0.04em;
+        }
+
+        .card p {
+            margin: 0;
+            color: rgba(243, 247, 250, 0.84);
+            line-height: 1.55;
+        }
+
+        .cta {
+            margin-top: auto;
+            display: inline-block;
+            padding: 0.75rem 1.1rem;
+            border-radius: 12px;
+            background: linear-gradient(120deg, var(--f1-red), #ff4d4d);
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .cta.secondary {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <a class="back-link" href="index.html">← Back to Home</a>
+        <div>
+            <p class="section-title">Trading In Markets Under Simulation</p>
+            <h1>TiMUS — Your Financial Hub</h1>
+            <p class="lead">TiMUS is a zero-risk market simulator that mirrors real trading conditions across stocks, crypto, forex, commodities, and ETFs. Users trade with simulated data and virtual funds to build discipline, learn market mechanics, and explore strategies without financial exposure. The experience blends market education (chart types, risk management, leverage, banking basics) with two trading modes: Classic for deliberate strategy practice and Turbo for fast-paced intraday execution. It is built as an academic project focused on responsible AI use, transparent mechanics, and continuous feedback.</p>
+        </div>
+        <div>
+            <p class="section-title">Project Materials</p>
+            <div class="materials">
+                <div class="card">
+                    <h3>Website</h3>
+                    <p>Walk through the live TiMUS experience: markets, simulator, and education hub.</p>
+                    <a class="cta" href="https://preview--timus-sim-lab.lovable.app/?__lovable_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiWGpUYnRJZDRwc2JXZ2tKc3Vsb1UwSzVCOUpRMiIsInByb2plY3RfaWQiOiJiZDk5MDFkNS05YzgwLTQyODQtYThkMi05YWVjN2NjYmE5ZWQiLCJub25jZSI6IjJhZWI3NDEwNjBkMzdlMmYwNjliM2M4NWJkZDRjYWRkIiwiaXNzIjoibG92YWJsZS1hcGkiLCJzdWIiOiJiZDk5MDFkNS05YzgwLTQyODQtYThkMi05YWVjN2NjYmE5ZWQiLCJhdWQiOlsibG92YWJsZS1hcHAiXSwiZXhwIjoxNzY0MjY3MjQ5LCJuYmYiOjE3NjM2NjI0NDksImlhdCI6MTc2MzY2MjQ0OX0.MR1OviYD9i18nmKD_xXpTgQj0SNXQR1LW6SnoHcmdCY/" target="_blank" rel="noopener">View Website</a>
+                </div>
+                <div class="card">
+                    <h3>Presentation</h3>
+                    <p>Slides covering the TiMUS concept, approach, and demo flow.</p>
+                    <a class="cta" href="#" target="_blank" rel="noopener">Presentation Slides</a>
+                </div>
+                <div class="card">
+                    <h3>Project Report</h3>
+                    <p>Read the project writeup, methodology, and findings.</p>
+                    <a class="cta" href="project.pdf" target="_blank" rel="noopener">View Project Report</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
