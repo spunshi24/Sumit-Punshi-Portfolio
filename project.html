@@ -3,154 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Class Project | TiMUS</title>
+    <title>TiMUS | Trading in Markets Under Simulation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --f1-red: #e10600;
-            --pit-dark: #06070a;
-            --pit-mid: #0c0f18;
-            --pit-light: #141822;
-            --tire-grey: #9aa2ae;
-            --chalk: #f3f7fa;
+            --ink: #0f172a;
+            --muted: #475569;
+            --border: #e2e8f0;
+            --panel: #ffffff;
+            --accent: #0f766e;
+            --accent-strong: #0d9488;
+            --bg: #f8fafc;
         }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         body {
             margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background: radial-gradient(circle at 25% 20%, rgba(225, 6, 0, 0.16), transparent 38%), linear-gradient(180deg, #050608 0%, #0a0d15 45%, #050608 100%);
-            color: var(--chalk);
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
             min-height: 100vh;
-            padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 6vw, 6rem) clamp(3rem, 8vw, 6rem);
         }
-
-        .frame {
-            max-width: 960px;
+        main {
+            max-width: 1120px;
             margin: 0 auto;
-            background: rgba(10, 14, 22, 0.92);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
-            padding: clamp(2rem, 4vw, 3rem);
+            padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 3rem) clamp(3rem, 6vw, 4rem);
             display: grid;
-            gap: 1.6rem;
+            gap: clamp(1.8rem, 3vw, 2.5rem);
         }
-
-        a.back-link {
-            color: var(--tire-grey);
+        a.back {
+            color: var(--muted);
             text-decoration: none;
             font-weight: 700;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.01em;
         }
-
-        a.back-link:hover {
-            color: var(--chalk);
+        a.back:hover { color: var(--accent); }
+        header h1 {
+            margin: 0.2rem 0 0.2rem;
+            font-size: clamp(2.1rem, 3.6vw, 2.8rem);
+            letter-spacing: -0.01em;
         }
-
-        h1 {
-            font-family: 'Titillium Web', sans-serif;
-            font-size: clamp(2.3rem, 4vw, 3.1rem);
+        header p {
             margin: 0;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+            color: var(--muted);
+            line-height: 1.6;
         }
-
-        .lead {
-            margin: 0;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: rgba(243, 247, 250, 0.82);
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: clamp(1.6rem, 3vw, 2rem);
+            box-shadow: 0 10px 30px rgba(15,23,42,0.06);
         }
-
-        .section-title {
-            font-family: 'Titillium Web', sans-serif;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            font-size: 1.15rem;
-            margin: 0;
+        .grid {
+            display: grid;
+            gap: 1rem;
         }
-
         .materials {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1rem;
         }
-
         .card {
-            background: rgba(18, 23, 33, 0.78);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: var(--panel);
+            border: 1px solid var(--border);
             border-radius: 14px;
-            padding: 1.4rem;
+            padding: 1.1rem 1.2rem;
             display: grid;
-            gap: 0.6rem;
-            min-height: 160px;
+            gap: 0.35rem;
+            min-height: 150px;
+            box-shadow: 0 10px 30px rgba(15,23,42,0.04);
         }
-
-        .card h3 {
-            margin: 0;
-            font-size: 1.1rem;
-            letter-spacing: 0.04em;
-        }
-
-        .card p {
-            margin: 0;
-            color: rgba(243, 247, 250, 0.84);
-            line-height: 1.55;
-        }
-
-        .cta {
+        .card h3 { margin: 0; font-size: 1.05rem; }
+        .card p { margin: 0; color: var(--muted); line-height: 1.55; }
+        .card .link {
             margin-top: auto;
-            display: inline-block;
-            padding: 0.75rem 1.1rem;
-            border-radius: 12px;
-            background: linear-gradient(120deg, var(--f1-red), #ff4d4d);
-            color: #fff;
+            color: var(--accent-strong);
             font-weight: 700;
-            letter-spacing: 0.05em;
             text-decoration: none;
-            text-align: center;
         }
-
-        .cta.secondary {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-        }
+        .card .link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-    <div class="frame">
-        <a class="back-link" href="index.html">← Back to Home</a>
-        <div>
-            <p class="section-title">Trading In Markets Under Simulation</p>
-            <h1>TiMUS — Your Financial Hub</h1>
-            <p class="lead">TiMUS is a zero-risk market simulator that mirrors real trading conditions across stocks, crypto, forex, commodities, and ETFs. Users trade with simulated data and virtual funds to build discipline, learn market mechanics, and explore strategies without financial exposure. The experience blends market education (chart types, risk management, leverage, banking basics) with two trading modes: Classic for deliberate strategy practice and Turbo for fast-paced intraday execution. It is built as an academic project focused on responsible AI use, transparent mechanics, and continuous feedback.</p>
-        </div>
-        <div>
-            <p class="section-title">Project Materials</p>
-            <div class="materials">
-                <div class="card">
-                    <h3>Website</h3>
-                    <p>Walk through the live TiMUS experience: markets, simulator, and education hub.</p>
-                    <a class="cta" href="https://preview--timus-sim-lab.lovable.app/?__lovable_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiWGpUYnRJZDRwc2JXZ2tKc3Vsb1UwSzVCOUpRMiIsInByb2plY3RfaWQiOiJiZDk5MDFkNS05YzgwLTQyODQtYThkMi05YWVjN2NjYmE5ZWQiLCJub25jZSI6IjJhZWI3NDEwNjBkMzdlMmYwNjliM2M4NWJkZDRjYWRkIiwiaXNzIjoibG92YWJsZS1hcGkiLCJzdWIiOiJiZDk5MDFkNS05YzgwLTQyODQtYThkMi05YWVjN2NjYmE5ZWQiLCJhdWQiOlsibG92YWJsZS1hcHAiXSwiZXhwIjoxNzY0MjY3MjQ5LCJuYmYiOjE3NjM2NjI0NDksImlhdCI6MTc2MzY2MjQ0OX0.MR1OviYD9i18nmKD_xXpTgQj0SNXQR1LW6SnoHcmdCY/" target="_blank" rel="noopener">View Website</a>
-                </div>
-                <div class="card">
-                    <h3>Presentation</h3>
-                    <p>Slides covering the TiMUS concept, approach, and demo flow.</p>
-                    <a class="cta" href="#" target="_blank" rel="noopener">Presentation Slides</a>
-                </div>
-                <div class="card">
-                    <h3>Project Report</h3>
-                    <p>Read the project writeup, methodology, and findings.</p>
-                    <a class="cta" href="project.pdf" target="_blank" rel="noopener">View Project Report</a>
-                </div>
+<main>
+    <a class="back" href="index.html">← Back to Home</a>
+    <header>
+        <p>Trading in Markets Under Simulation</p>
+        <h1>TiMUS — Your Financial Hub</h1>
+        <p>TiMUS is a zero-risk simulator across stocks, crypto, forex, commodities, and ETFs. Built as my project, it mirrors real market conditions so people can practice strategy, discipline, and risk management without financial exposure.</p>
+    </header>
+
+    <section class="panel grid">
+        <h2 style="margin:0">Why TiMUS</h2>
+        <p>During COVID, I learned markets alongside my dad—we even paper-traded with accounting-style ledgers to balance P&amp;L by hand. That experience sparked TiMUS: a structured, educational simulator that keeps the realism of market mechanics while removing financial risk.</p>
+        <p>Features include deliberate (Classic) and fast-paced (Turbo) modes, simulated multi-asset markets, real-time charts, and education modules on strategies, chart types, risk management, and banking basics. The goal is to learn by doing—not by losing.</p>
+    </section>
+
+    <section class="panel grid">
+        <h2 style="margin:0">Project Materials</h2>
+        <div class="materials">
+            <div class="card">
+                <h3>Website</h3>
+                <p>Explore the live TiMUS flow: simulator, markets, and education hub.</p>
+                <a class="link" href="https://preview--timus-sim-lab.lovable.app/?__lovable_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiWGpUYnRJZDRwc2JXZ2tKc3Vsb1UwSzVCOUpRMiIsInByb2plY3RfaWQiOiJiZDk5MDFkNS05YzgwLTQyODQtYThkMi05YWVjN2NjYmE5ZWQiLCJub25jZSI6IjJhZWI3NDEwNjBkMzdlMmYwNjliM2M4NWJkZDRjYWRkIiwiaXNzIjoibG92YWJsZS1hcGkiLCJzdWIiOiJiZDk5MDFkNS05YzgwLTQyODQtYThkMi05YWVjN2NjYmE5ZWQiLCJhdWQiOlsibG92YWJsZS1hcHAiXSwiZXhwIjoxNzY0MjY3MjQ5LCJuYmYiOjE3NjM2NjI0NDksImlhdCI6MTc2MzY2MjQ0OX0.MR1OviYD9i18nmKD_xXpTgQj0SNXQR1LW6SnoHcmdCY/" target="_blank" rel="noopener">View Website →</a>
+            </div>
+            <div class="card">
+                <h3>Presentation</h3>
+                <p>Slide deck covering concept, story, and demo plan.</p>
+                <a class="link" href="#" target="_blank" rel="noopener">Presentation Slides →</a>
+            </div>
+            <div class="card">
+                <h3>Project Report</h3>
+                <p>Writeup on methodology, design decisions, and findings.</p>
+                <a class="link" href="project.pdf" target="_blank" rel="noopener">View Project Report →</a>
             </div>
         </div>
-    </div>
+    </section>
+</main>
 </body>
 </html>
